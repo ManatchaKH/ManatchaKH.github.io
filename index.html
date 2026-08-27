@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07101d">
+<title>Manatcha Khemglad | Digital Card</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;padding:22px 14px;color:#fff;
+ font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+ background:radial-gradient(circle at 10% 0,#294d91 0,transparent 38%),
+ radial-gradient(circle at 100% 100%,#075262 0,transparent 42%),#060a12;
+ display:flex;justify-content:center;
+}
+.card{
+ position:relative;overflow:hidden;width:min(430px,100%);padding:25px 18px 23px;
+ border:1px solid #ffffff24;border-radius:30px;background:#ffffff09;
+ backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+ box-shadow:0 24px 70px #000b;
+}
+.content{position:relative;z-index:2}
+.watermarks{
+ position:absolute;z-index:1;inset:-8% -20%;transform:rotate(-17deg);
+ display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:108px;
+ gap:6px 14px;opacity:.105;pointer-events:none;
+}
+.watermarks img{width:94px;height:auto;justify-self:center;opacity:.9}
+.logo{display:block;position:relative;z-index:3;width:175px;max-height:78px;object-fit:contain;margin:0 auto 15px;
+ filter:drop-shadow(0 5px 12px #0007)}
+.photo{display:block;position:relative;z-index:3;width:118px;height:118px;margin:auto;border-radius:50%;
+ object-fit:cover;object-position:center top;border:3px solid #fff;
+ box-shadow:0 0 0 5px #ffffff08,0 0 36px #5c7cff77}
+h1{position:relative;z-index:3;text-align:center;font-size:28px;line-height:1.2;margin:16px 0 4px}
+.role{position:relative;z-index:3;text-align:center;color:#c0cbe0;font-size:16px;margin:0 0 19px}
+.badge{display:block;position:relative;z-index:3;width:max-content;margin:0 auto 21px;padding:8px 15px;
+ border:1px solid #ffffff20;border-radius:999px;background:#ffffff0c;color:#c8d4e9;font-size:12px}
+.buttons{position:relative;z-index:3;display:grid;gap:11px}
+.btn{width:100%;min-height:55px;border-radius:16px;display:flex;align-items:center;justify-content:center;gap:10px;
+ color:#fff;text-decoration:none;font:700 16px system-ui,-apple-system,"Segoe UI",sans-serif;
+ border:1px solid #ffffff18;cursor:pointer;transition:.15s}
+.btn:active,.sharebtn:active{transform:scale(.97)}
+.call{border:0;background:linear-gradient(135deg,#6257ff,#009fdd);box-shadow:0 8px 25px #009fdd44}
+.line{background:#06c755;border-color:#06c755;box-shadow:0 8px 22px #06c7553d}
+.email{background:#f51d2b;border-color:#f51d2b;box-shadow:0 8px 22px #f51d2b3d}
+.save{background:#ffffff0c}
+.sharebox{position:relative;z-index:3;margin-top:16px;padding:12px;border:1px solid #ffffff18;border-radius:19px;background:#00000018}
+.sharetitle{text-align:center;color:#b4c0d5;font-size:11px;letter-spacing:1.6px;margin:0 0 10px}
+.sharegrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.sharebtn{min-height:50px;border:1px solid #ffffff18;border-radius:15px;background:#ffffff08;color:#fff;
+ display:flex;align-items:center;justify-content:center;gap:8px;font:750 13px system-ui,-apple-system,"Segoe UI",sans-serif;cursor:pointer}
+.sharebtn svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.qr{display:none;width:164px;height:164px;margin:13px auto 4px;padding:11px;background:#fff;border-radius:17px;align-items:center;justify-content:center}
+.qr.show{display:flex}
+#qr{width:142px;height:142px;display:flex;align-items:center;justify-content:center}
+#qr svg{width:142px;height:142px;display:block}
+.hint{text-align:center;color:#8190a7;font-size:10px;margin-top:7px}
+footer{position:relative;z-index:3;text-align:center;color:#6e7b91;font-size:11px;margin-top:19px}
+@media(max-width:380px){
+ body{padding:12px 10px}.card{padding:22px 14px 20px;border-radius:25px}
+ .logo{width:150px}.photo{width:105px;height:105px}h1{font-size:24px}.role{font-size:14px}.btn{min-height:51px;font-size:15px}
+ .watermarks{grid-auto-rows:94px}.watermarks img{width:82px}
+}
+</style>
+</head>
+<body>
+<main class="card">
+
+<div class="watermarks">
+<img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt="">
+<img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt="">
+<img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt="">
+<img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt="">
+<img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt="">
+<img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt=""><img src="company-logo.png" alt="">
+</div>
+
+<div class="content">
+<img class="logo" src="company-logo.png" alt="Han's Laser">
+<img class="photo" src="profile.jpg" alt="Manatcha Khemglad">
+
+<h1>Manatcha Khemglad</h1>
+<p class="role">Engineer at Han's Laser (Thailand)</p>
+<span class="badge">⌚ NFC DIGITAL BUSINESS CARD</span>
+
+<div class="buttons">
+<a class="btn call" href="tel:+66991363677">📞 Call me</a>
+<a class="btn line" href="https://line.me/ti/p/DYkaL3vXRd" target="_blank" rel="noopener">💬 LINE</a>
+<a class="btn email" href="mailto:manatcha27196@gmail.com">✉️ Email</a>
+<button class="btn save" type="button" onclick="saveContact()">👤 Save Contact</button>
+</div>
+
+<div class="sharebox">
+<p class="sharetitle">SHARE MY CARD</p>
+<div class="sharegrid">
+
+<button class="sharebtn" id="shareBtn" type="button" onclick="shareCard()">
+<svg viewBox="0 0 32 32"><circle cx="23" cy="6" r="3"/><circle cx="8" cy="16" r="3"/><circle cx="23" cy="26" r="3"/><path d="M11 14l9-6M11 18l9 6"/></svg>
+<span>Share Card</span>
+</button>
+
+<button class="sharebtn" type="button" onclick="toggleQR()">
+<svg viewBox="0 0 32 32">
+<path d="M5 11V6h5M21 6h5v5M27 21v5h-5M11 26H6v-5"/>
+<path d="M10 10h4v4h-4zM18 10h4v4h-4zM10 18h4v4h-4zM18 18h4v4h-4z"/>
+</svg>
+<span id="scanText">Scan Card</span>
+</button>
+
+</div>
+<div class="qr" id="qrBox"><div id="qr"></div></div>
+<div class="hint" id="qrHint">Tap Scan Card to show QR</div>
+</div>
+
+<footer>Powered by GitHub Pages • NFC Ready</footer>
+</div>
+</main>
+
+<script>
+const cardUrl=window.location.href;
+
+function generateQR(){
+ const el=document.getElementById("qr");
+ if(typeof qrcode==="undefined"){setTimeout(generateQR,300);return}
+ const code=qrcode(0,"M");
+ code.addData(cardUrl);code.make();
+ el.innerHTML=code.createSvgTag(5,0);
+ const svg=el.querySelector("svg");
+ if(svg){svg.setAttribute("width","142");svg.setAttribute("height","142");svg.style.width="142px";svg.style.height="142px";svg.style.display="block"}
+}
+
+function toggleQR(){
+ const box=document.getElementById("qrBox"), text=document.getElementById("scanText"), hint=document.getElementById("qrHint");
+ const show=box.classList.toggle("show");
+ text.textContent=show?"Hide QR":"Scan Card";
+ hint.textContent=show?"Scan this QR to open my card":"Tap Scan Card to show QR";
+}
+
+function saveContact(){
+ const vcard=`BEGIN:VCARD
+VERSION:3.0
+FN:Manatcha Khemglad
+N:Khemglad;Manatcha;;;
+ORG:Han's Laser (Thailand)
+TITLE:Engineer
+TEL;TYPE=CELL:+66991363677
+EMAIL:manatcha27196@gmail.com
+URL:${cardUrl}
+END:VCARD`;
+ const blob=new Blob([vcard],{type:"text/vcard;charset=utf-8"});
+ const url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="Manatcha-Khemglad.vcf";document.body.appendChild(a);a.click();document.body.removeChild(a);
+ setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+async function shareCard(){
+ const data={title:"Manatcha Khemglad | Digital Card",text:"Manatcha Khemglad - Digital Business Card",url:cardUrl};
+ if(navigator.share){try{await navigator.share(data)}catch(e){}return}
+ try{
+  await navigator.clipboard.writeText(cardUrl);
+  const span=document.querySelector("#shareBtn span"),old=span.textContent;
+  span.textContent="Link Copied!";
+  setTimeout(()=>span.textContent=old,1800);
+ }catch(e){prompt("Copy this URL:",cardUrl)}
+}
+generateQR();
+</script>
+</body>
+</html>
