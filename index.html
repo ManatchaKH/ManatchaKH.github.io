@@ -1,70 +1,1194 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07101d">
-<title>Manatcha Khemglad | Digital Card</title>
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="theme-color"
+    content="#060a12"
+>
+
+<meta
+    name="description"
+    content="Manatcha Khemglad Digital Business Card"
+>
+
+<title>
+Manatcha Khemglad | Digital Card
+</title>
+
+
+<!-- QR CODE LIBRARY -->
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js">
+</script>
+
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#fff;background:radial-gradient(circle at 20% 0,#263d73 0,transparent 36%),radial-gradient(circle at 100% 100%,#123e4d 0,transparent 38%),#060a12;display:flex;justify-content:center;padding:22px 14px}
-.card{width:min(430px,100%);padding:24px 18px 22px;border:1px solid #ffffff1c;border-radius:30px;background:#ffffff0b;backdrop-filter:blur(18px);box-shadow:0 24px 70px #0009}
-.photo{width:118px;height:118px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin:auto;border:3px solid #fff;box-shadow:0 0 35px #5c7cff77}
-h1{text-align:center;margin:15px 0 3px;font-size:27px;letter-spacing:.2px}
-.role{text-align:center;color:#b9c5dc;margin:0 0 20px;font-size:16px}
-.badge{display:block;width:max-content;margin:0 auto 22px;padding:7px 12px;border-radius:999px;background:#ffffff0d;border:1px solid #ffffff12;color:#b9c7e6;font-size:12px}
-.buttons{display:grid;gap:11px}
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 16px;border-radius:16px;color:#fff;text-decoration:none;font-size:16px;font-weight:700;background:#ffffff0c;border:1px solid #ffffff14}
-.primary{background:linear-gradient(135deg,#6558ff,#009edb);border:0}
-.btn:active{transform:scale(.98)}
-.qr{margin:22px auto 8px;padding:13px;width:168px;background:#fff;border-radius:18px}
-.qr img{width:142px;height:142px;display:block}
-.small{text-align:center;color:#7f8ba4;font-size:12px;margin:9px 0 0}
-footer{text-align:center;color:#69748c;font-size:11px;margin-top:20px}
+
+/* ================================
+   BASIC
+================================ */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    margin:0;
+
+    min-height:100vh;
+
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color:#ffffff;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(48,78,145,.75),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(10,102,120,.65),
+            transparent 38%
+        ),
+
+        #060a12;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:
+        22px
+        14px;
+
+}
+
+
+/* ================================
+   CARD
+================================ */
+
+.card{
+
+    position:relative;
+
+    width:min(
+        430px,
+        100%
+    );
+
+    padding:
+        26px
+        18px
+        24px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.50);
+
+    overflow:hidden;
+
+}
+
+
+/* ================================
+   TOP LIGHT
+================================ */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+
+    height:240px;
+
+    left:-100px;
+
+    top:-120px;
+
+    background:
+        rgba(90,130,255,.12);
+
+    filter:
+        blur(60px);
+
+    pointer-events:none;
+
+}
+
+
+/* ================================
+   WATERMARK
+================================ */
+
+.watermark{
+
+    position:absolute;
+
+    width:260px;
+
+    right:-60px;
+
+    bottom:45px;
+
+    opacity:.035;
+
+    pointer-events:none;
+
+    user-select:none;
+
+}
+
+
+/* ================================
+   COMPANY LOGO
+================================ */
+
+.company-logo{
+
+    width:170px;
+
+    max-width:80%;
+
+    max-height:75px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:
+        0
+        auto
+        18px;
+
+    filter:
+        drop-shadow(
+            0 5px 14px
+            rgba(0,0,0,.35)
+        );
+
+}
+
+
+/* ================================
+   PROFILE
+================================ */
+
+.photo{
+
+    width:118px;
+
+    height:118px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    object-position:center top;
+
+    display:block;
+
+    margin:auto;
+
+    border:
+        3px solid
+        #ffffff;
+
+    box-shadow:
+
+        0 0 0 5px
+        rgba(255,255,255,.04),
+
+        0 0 35px
+        rgba(92,124,255,.45);
+
+}
+
+
+/* ================================
+   NAME
+================================ */
+
+h1{
+
+    text-align:center;
+
+    margin:
+        16px
+        0
+        4px;
+
+    font-size:28px;
+
+    line-height:1.2;
+
+    letter-spacing:.2px;
+
+}
+
+
+/* ================================
+   ROLE
+================================ */
+
+.role{
+
+    text-align:center;
+
+    color:#b9c5dc;
+
+    margin:
+        0
+        0
+        20px;
+
+    font-size:16px;
+
+    line-height:1.5;
+
+}
+
+
+/* ================================
+   NFC BADGE
+================================ */
+
+.badge{
+
+    display:block;
+
+    width:max-content;
+
+    max-width:100%;
+
+    margin:
+        0
+        auto
+        22px;
+
+    padding:
+        8px
+        15px;
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    color:#c7d3ec;
+
+    font-size:12px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.15);
+
+}
+
+
+/* ================================
+   BUTTON AREA
+================================ */
+
+.buttons{
+
+    display:grid;
+
+    gap:11px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* ================================
+   GENERAL BUTTON
+================================ */
+
+.btn{
+
+    width:100%;
+
+    min-height:54px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:
+        15px
+        16px;
+
+    border-radius:16px;
+
+    color:#ffffff;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    font-family:inherit;
+
+    cursor:pointer;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    transition:
+
+        transform .15s ease,
+
+        filter .15s ease,
+
+        box-shadow .15s ease;
+
+}
+
+
+/* ================================
+   CALL BUTTON
+================================ */
+
+.call-btn{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #6558ff,
+            #009edb
+        );
+
+    border:none;
+
+    box-shadow:
+
+        0 8px 25px
+        rgba(0,158,219,.25);
+
+}
+
+
+/* ================================
+   LINE BUTTON
+================================ */
+
+.line-btn{
+
+    background:#06c755;
+
+    border-color:#06c755;
+
+    box-shadow:
+
+        0 8px 22px
+        rgba(6,199,85,.25);
+
+}
+
+
+/* ================================
+   EMAIL BUTTON
+================================ */
+
+.email-btn{
+
+    background:#e53935;
+
+    border-color:#e53935;
+
+    box-shadow:
+
+        0 8px 22px
+        rgba(229,57,53,.25);
+
+}
+
+
+/* ================================
+   SAVE BUTTON
+================================ */
+
+.save-btn{
+
+    background:
+        rgba(255,255,255,.075);
+
+}
+
+
+/* ================================
+   SHARE BUTTON
+================================ */
+
+.share-btn{
+
+    background:
+        rgba(255,255,255,.075);
+
+}
+
+
+/* ================================
+   BUTTON EFFECT
+================================ */
+
+.btn:hover{
+
+    filter:brightness(1.10);
+
+    box-shadow:
+        0 10px 28px
+        rgba(0,0,0,.20);
+
+}
+
+.btn:active{
+
+    transform:scale(.97);
+
+}
+
+
+/* ================================
+   QR AREA
+================================ */
+
+.qr-container{
+
+    position:relative;
+
+    z-index:2;
+
+    margin:
+        25px
+        auto
+        8px;
+
+    padding:14px;
+
+    width:178px;
+
+    height:178px;
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:
+
+        0 12px 35px
+        rgba(0,0,0,.30);
+
+}
+
+
+/* ================================
+   QR SVG
+================================ */
+
+#qr{
+
+    width:150px;
+
+    height:150px;
+
+    display:block;
+
+}
+
+
+/* ================================
+   QR TEXT
+================================ */
+
+.small{
+
+    text-align:center;
+
+    color:#8995ac;
+
+    font-size:12px;
+
+    margin:
+        9px
+        0
+        0;
+
+}
+
+
+/* ================================
+   QR STATUS
+================================ */
+
+.qr-status{
+
+    text-align:center;
+
+    color:#66748b;
+
+    font-size:10px;
+
+    margin-top:5px;
+
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    color:#69748c;
+
+    font-size:11px;
+
+    margin-top:20px;
+
+    letter-spacing:.2px;
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:380px){
+
+    body{
+
+        padding:
+            12px
+            10px;
+
+    }
+
+    .card{
+
+        padding:
+            22px
+            14px
+            20px;
+
+        border-radius:25px;
+
+    }
+
+    .company-logo{
+
+        width:150px;
+
+    }
+
+    .photo{
+
+        width:105px;
+
+        height:105px;
+
+    }
+
+    h1{
+
+        font-size:24px;
+
+    }
+
+    .role{
+
+        font-size:14px;
+
+    }
+
+    .btn{
+
+        min-height:51px;
+
+        font-size:15px;
+
+    }
+
+}
+
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media(
+    prefers-reduced-motion:reduce
+){
+
+    html{
+
+        scroll-behavior:auto;
+
+    }
+
+    .btn{
+
+        transition:none;
+
+    }
+
+}
+
 </style>
+
 </head>
+
+
 <body>
+
+
 <main class="card">
-<img class="photo" src="profile.jpg" alt="Manatcha Khemglad">
-<h1>Manatcha Khemglad</h1>
-<p class="role">Engineer at Han's Laser(Thailand)</p>
-<span class="badge">⌚ NFC Digital Business Card</span>
+
+
+<!-- ============================
+     COMPANY WATERMARK
+============================= -->
+
+<img
+    class="watermark"
+    src="company-logo.png"
+    alt=""
+>
+
+
+<!-- ============================
+     COMPANY LOGO
+============================= -->
+
+<img
+    class="company-logo"
+    src="company-logo.png"
+    alt="Han's Laser"
+>
+
+
+<!-- ============================
+     PROFILE PHOTO
+============================= -->
+
+<img
+    class="photo"
+    src="profile.jpg"
+    alt="Manatcha Khemglad"
+>
+
+
+<!-- ============================
+     NAME
+============================= -->
+
+<h1>
+    Manatcha Khemglad
+</h1>
+
+
+<!-- ============================
+     POSITION
+============================= -->
+
+<p class="role">
+
+    Engineer at Han's Laser(Thailand)
+
+</p>
+
+
+<!-- ============================
+     NFC BADGE
+============================= -->
+
+<span class="badge">
+
+    ⌚ NFC Digital Business Card
+
+</span>
+
+
+<!-- ============================
+     BUTTONS
+============================= -->
 
 <div class="buttons">
-<a class="btn primary" href="tel:+66991363677">📞 Call me</a>
-<a class="btn" href="https://line.me/ti/p/DYkaL3vXRd" target="_blank" rel="noopener">💬 LINE</a>
-<a class="btn" href="mailto:manatcha27196@gmail.com">✉️ Email</a>
-<button class="btn" onclick="saveContact()">👤 Save Contact</button>
-<button class="btn" onclick="shareCard()">↗️ Share Card</button>
+
+
+    <!-- CALL -->
+
+    <a
+        class="btn call-btn"
+        href="tel:+66991363677"
+    >
+
+        📞 Call me
+
+    </a>
+
+
+    <!-- LINE -->
+
+    <a
+        class="btn line-btn"
+        href="https://line.me/ti/p/DYkaL3vXRd"
+        target="_blank"
+        rel="noopener"
+    >
+
+        💬 LINE
+
+    </a>
+
+
+    <!-- EMAIL -->
+
+    <a
+        class="btn email-btn"
+        href="mailto:manatcha27196@gmail.com"
+    >
+
+        ✉️ Email
+
+    </a>
+
+
+    <!-- SAVE CONTACT -->
+
+    <button
+        class="btn save-btn"
+        type="button"
+        onclick="saveContact()"
+    >
+
+        👤 Save Contact
+
+    </button>
+
+
+    <!-- SHARE -->
+
+    <button
+        class="btn share-btn"
+        type="button"
+        onclick="shareCard()"
+    >
+
+        ↗️ Share Card
+
+    </button>
+
+
 </div>
 
-<div class="qr"><img id="qr" alt="QR Code"></div>
-<p class="small">Scan QR for Open Digital Card</p>
-<footer>Powered by GitHub Pages • NFC Ready</footer>
+
+<!-- ============================
+     QR CODE
+============================= -->
+
+<div
+    class="qr-container"
+    id="qr-container"
+>
+
+    <div id="qr"></div>
+
+</div>
+
+
+<p class="small">
+
+    Scan QR for Open Digital Card
+
+</p>
+
+
+<p
+    class="qr-status"
+    id="qr-status"
+>
+    QR Code Ready
+</p>
+
+
+<!-- ============================
+     FOOTER
+============================= -->
+
+<footer>
+
+    Powered by GitHub Pages • NFC Ready
+
+</footer>
+
+
 </main>
 
+
 <script>
-const cardUrl=window.location.href;
-document.getElementById("qr").src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data="+encodeURIComponent(cardUrl);
+
+
+/* =================================
+   GET CURRENT CARD URL
+================================= */
+
+const cardUrl =
+    window.location.href;
+
+
+/* =================================
+   GENERATE QR CODE
+================================= */
+
+function generateQR(){
+
+    const qrElement =
+        document.getElementById("qr");
+
+    const status =
+        document.getElementById("qr-status");
+
+
+    if(
+        typeof qrcode === "undefined"
+    ){
+
+        status.textContent =
+            "QR library loading...";
+
+        setTimeout(
+            generateQR,
+            500
+        );
+
+        return;
+
+    }
+
+
+    try{
+
+        /*
+         * QR Version 0 = automatic
+         * Error correction = M
+         */
+
+        const qr =
+            qrcode(
+                0,
+                "M"
+            );
+
+
+        qr.addData(
+            cardUrl
+        );
+
+
+        qr.make();
+
+
+        /*
+         * Generate SVG
+         */
+
+        qrElement.innerHTML =
+            qr.createSvgTag(
+                5,
+                0
+            );
+
+
+        /*
+         * Make SVG responsive
+         */
+
+        const svg =
+            qrElement.querySelector("svg");
+
+
+        if(svg){
+
+            svg.setAttribute(
+                "width",
+                "150"
+            );
+
+            svg.setAttribute(
+                "height",
+                "150"
+            );
+
+            svg.setAttribute(
+                "viewBox",
+                svg.getAttribute(
+                    "viewBox"
+                ) || "0 0 150 150"
+            );
+
+            svg.style.display =
+                "block";
+
+        }
+
+
+        status.textContent =
+            "QR Code Ready";
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        status.textContent =
+            "ไม่สามารถสร้าง QR Code ได้";
+
+    }
+
+}
+
+
+/* =================================
+   SAVE CONTACT
+================================= */
 
 function saveContact(){
-const vcard=`BEGIN:VCARD
+
+    const vcard =
+
+`BEGIN:VCARD
 VERSION:3.0
 FN:Manatcha Khemglad
-TITLE:Engineer Han's Laser
-TEL:0991363677
+N:Khemglad;Manatcha;;;
+ORG:Han's Laser (Thailand)
+TITLE:Engineer
+TEL;TYPE=CELL:+66991363677
 EMAIL:manatcha27196@gmail.com
 URL:${cardUrl}
 END:VCARD`;
-const blob=new Blob([vcard],{type:"text/vcard"});
-const url=URL.createObjectURL(blob);
-const a=document.createElement("a");a.href=url;a.download="Manatcha-Khemglad.vcf";a.click();
-URL.revokeObjectURL(url);
+
+
+    const blob =
+
+        new Blob(
+            [vcard],
+            {
+                type:
+                    "text/vcard;charset=utf-8"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(
+            blob
+        );
+
+
+    const a =
+        document.createElement(
+            "a"
+        );
+
+
+    a.href =
+        url;
+
+
+    a.download =
+        "Manatcha-Khemglad.vcf";
+
+
+    document.body.appendChild(
+        a
+    );
+
+
+    a.click();
+
+
+    document.body.removeChild(
+        a
+    );
+
+
+    setTimeout(
+        () =>
+            URL.revokeObjectURL(
+                url
+            ),
+        1000
+    );
+
 }
+
+
+/* =================================
+   SHARE CARD
+================================= */
+
 async function shareCard(){
-if(navigator.share){await navigator.share({title:"Manatcha Khemglad | Digital Card",text:"Digital Business Card",url:cardUrl});}
-else{await navigator.clipboard.writeText(cardUrl);alert("คัดลอกลิงก์แล้ว");}
+
+    const shareData = {
+
+        title:
+            "Manatcha Khemglad | Digital Card",
+
+        text:
+            "Manatcha Khemglad - Digital Business Card",
+
+        url:
+            cardUrl
+
+    };
+
+
+    /*
+     * Android / modern browsers
+     */
+
+    if(
+        navigator.share
+    ){
+
+        try{
+
+            await navigator.share(
+                shareData
+            );
+
+        }
+
+        catch(error){
+
+            /*
+             * User cancelled share.
+             * Do nothing.
+             */
+
+        }
+
+        return;
+
+    }
+
+
+    /*
+     * Clipboard fallback
+     */
+
+    try{
+
+        await navigator.clipboard.writeText(
+            cardUrl
+        );
+
+
+        alert(
+            "คัดลอกลิงก์นามบัตรแล้ว"
+        );
+
+    }
+
+    catch(error){
+
+        /*
+         * Final fallback
+         */
+
+        prompt(
+            "คัดลอกลิงก์นี้เพื่อแชร์:",
+            cardUrl
+        );
+
+    }
+
 }
+
+
+/* =================================
+   START QR
+================================= */
+
+generateQR();
+
+
 </script>
+
+
 </body>
+
 </html>
